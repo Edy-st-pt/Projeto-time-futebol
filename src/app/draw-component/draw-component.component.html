@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <h2>Sorteio</h2>
+    <button class="btn btn-success mb-3" (click)="drawMatches()">Sortear</button>
+  
+    <div *ngIf="pairs.length > 0">
+      <div class="list-group">
+        <div *ngFor="let pair of pairs" class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <img [src]="pair.teamA.logoUrl" width="40" height="40" class="me-2">
+            <strong>{{ pair.teamA.name }}</strong>
+          </div>
+          <div class="mx-3">vs</div>
+          <div class="d-flex align-items-center" *ngIf="pair.teamB; else woc">
+            <img [src]="pair.teamB.logoUrl" width="40" height="40" class="me-2">
+            <strong>{{ pair.teamB.name }}</strong>
+          </div>
+          <ng-template #woc>
+            <span class="text-muted">Sem adversário</span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>

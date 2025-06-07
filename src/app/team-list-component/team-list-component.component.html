@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <h2>Times Cadastrados</h2>
+    <div *ngIf="teams.length === 0" class="alert alert-info">
+      Nenhum time cadastrado.
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="teams.length > 0">
+      <div class="col" *ngFor="let team of teams">
+        <div class="card h-100">
+          <img [src]="team.logoUrl" class="card-img-top" alt="{{ team.name }}" height="150">
+          <div class="card-body">
+            <h5 class="card-title">{{ team.name }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
